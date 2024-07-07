@@ -100,16 +100,18 @@ class TaskCollection:
         task = make_task(task_data)
         print(task)
         task_id = insert_task(task)
-
         team_ids = [id.strip() for id in req.get_param('team').split(',')]
-        for user_id in team_ids:  # Notice the use of team_ids here instead of req.get_param_as_list('team')
+        for user_id in team_ids:
             user = get_user(ObjectId(user_id))
             user_tasks = user.get('tasks', [])
+            if not user_tasks:
+                user_tasks = []
+            elif not isinstance(user_tasks, list):
+                user_tasks = [user_tasks] # convert str to list
             user_tasks.append(str(task_id))
             update_user(ObjectId(user_id), {'tasks': user_tasks})
 
         resp.media = {'message': 'Task created successfully'}
-
     # def on_get(self, req, resp, id):
     #     data = fs.get(ObjectId(id))
     #     resp.stream, resp.content_length = data, data.length
@@ -214,13 +216,11 @@ class SingleTaskResource:
         resp.media = {'message': 'Task Updated Successfully'}
 
     def on_delete(self, req, resp, id):
-        if id == 'undefined':
-            # respond with error if id is undefined
-            raise falcon.HTTPBadRequest(description='Invalid id')
-
+        print("delete")
+        print(id)
         task_deleted = delete_task(ObjectId(id))
-        if task_deleted is None:
-            raise falcon.HTTPNotFound(description="Task not found")
+        # if task_deleted is None:
+        #     raise falcon.HTTPNotFound(description="Task not found")
         resp.media = {'message': 'Task deleted successfully'}
 
 
@@ -243,4 +243,3 @@ class CompletedTaskCount:
     def on_get(self, req, resp):
         completed_count = get_completed_tasks_count()
         resp.media = {'Completed Tasks': completed_count}
-

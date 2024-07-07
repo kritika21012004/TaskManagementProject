@@ -138,27 +138,15 @@ const submitHandler = async (e) => {
   // for (let i = 0; i < assets.length; i++) {
   //     data.append('assets', assets[i]);
   // }
-// console.log(typeof(data));
+
   try {
       for (let i = 0; i < assets.length; i++) {
-          // console.log("((((((((((((((((  ", assets[i])
           data.append('assets', assets[i]);
       }
-      console.log("data ======>>>>> ", data)
-      console.log(typeof(data));
        const response=await axios.post('http://localhost:8000/api/tasks', data);
-       const newTask = response.data;
-
-       // add task id/title to user's tasks
-       team.forEach(userId => {
-         const user = users.find(user => user._id === userId);
-         if (user) {
-           user.tasks.push(newTask.title);  // using task's title here
-         }
-       });
        setOpen(false);
-      //  console.log("1");
-      //  console.log(response.data);
+       console.log("1");
+       console.log(response.data);
        const updatedTasks = await axios.get('http://localhost:8000/api/tasks'); //fetch all tasks
        setTasks(updatedTasks.data);
        emptyForm();

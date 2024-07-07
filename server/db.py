@@ -1,7 +1,7 @@
 import pymongo
 from pymongo import MongoClient
 from datetime import datetime
-from bson import json_util, ObjectId
+from bson.objectid import ObjectId
 from gridfs import GridFS
 
 client = MongoClient("mongodb://localhost:27017/") 
@@ -54,14 +54,18 @@ def update_task(task_id, new_values):
 #     tasks_in_db.update_one({"_id": ObjectId(task_id)}, {"$set": {'deletedAt': datetime.now()}})
 
 def delete_task(task_id):
-    result = tasks_in_db.delete_one({"_id": ObjectId(task_id)})
-    return result.deleted_count == 1
+  tasks_in_db.delete_one({"_id": ObjectId(task_id)})
 
 def find_tasks_by_ids(task_ids): 
     return tasks_in_db.find({'_id': {'$in': task_ids}})
 
 def find_tasks_by_titles(titles):
-    return list(db.tasks.find({'title': { '$in': titles }}))
+    if titles and isinstance(titles, list):
+        return list(db.tasks.find({'title': { '$in': titles }}))
+    else:
+        # handle the case where titles is None or not a list.
+        # maybe return an empty list or None, or throw an error
+        return [] 
 
 def insert_asset(file_item):
     asset_id = fs.put(file_item.file, filename=file_item.filename, content_type=file_item.type);

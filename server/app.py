@@ -1,6 +1,5 @@
 from falcon_cors import CORS
 import falcon
-from app_middleware import serialize_image
 from falcon_multipart.middleware import MultipartMiddleware
 from user import UserLoginResource, UserRegistrationResource,UserProfileResource,ChangePasswordResource,LogoutResource, UsersCollection , SingleUserResource
 from task import TaskCollection , SingleTaskResource, TodoTaskCount,TotalTasksCount,CompletedTaskCount,InprogressTaskCount

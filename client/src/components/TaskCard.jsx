@@ -399,6 +399,7 @@ const TaskCard = ({ task, getUserById ,setTasks}) => {
       const response = await axios.delete(`http://localhost:8000/api/tasks/${id}`)
       console.log("button")
       if (response.status === 200) { 
+        console.log(response.status)
         setOpenDialog(false);
         setTasks(prevTasks => prevTasks.filter(task => task._id !== id));
       }
