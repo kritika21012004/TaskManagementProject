@@ -98,7 +98,6 @@ class TaskCollection:
             task_data['assets'] = asset_ids
 
         task = make_task(task_data)
-        print(task)
         task_id = insert_task(task)
         team_ids = [id.strip() for id in req.get_param('team').split(',')]
         for user_id in team_ids:
@@ -108,7 +107,8 @@ class TaskCollection:
                 user_tasks = []
             elif not isinstance(user_tasks, list):
                 user_tasks = [user_tasks] # convert str to list
-            user_tasks.append(str(task_id))
+            # user_tasks.append(str(task_id))
+            user_tasks.append(task_data['title'])
             update_user(ObjectId(user_id), {'tasks': user_tasks})
 
         resp.media = {'message': 'Task created successfully'}
