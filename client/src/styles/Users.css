@@ -1,0 +1,145 @@
+.table-heading {
+    border-bottom-width: 1px;
+    border-color: #D1D5DB;
+    margin-left: 2rem;
+
+}
+
+.table-row-heading {
+
+    text-align: left;
+    color: #000000;
+}
+
+
+.py-2-username {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 5rem;
+    
+}
+.py-2-email{
+    padding: 0.5rem;
+    padding-right: 7rem;
+}
+.py-2-tasks{
+    padding: 0.5rem;
+    padding-right: 2rem;
+}
+.py-2-role{
+    padding: 0.5rem;
+    padding-right: 5rem;
+}
+
+.table-first-row {
+    border-bottom-width: 1px;
+    border-color: #E5E7EB;
+    color: #4B5563;
+
+    :hover {}
+
+}
+
+.p-2-email {
+    padding: 0.5rem;
+    padding-right: 4rem;
+}
+.p-2-role {
+    padding: 0.5rem;
+}
+.p-2-tasks {
+    padding: 0.5rem;
+    padding-right: 6rem;
+}
+
+.table-outer-div {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.table-inner-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: #ffffff;
+    background-color: #1D4ED8;
+    height: 3rem;
+    width: 3rem;
+}
+
+.table-row-span {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-align: center;
+
+
+    @media (min-width: 768px) {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
+
+}
+
+.table-teammember-div {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 1.5rem;
+    width: 100%;
+
+
+    @media (min-width: 768px) {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+}
+
+.table-teammember-inner-div {
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.main-content{
+    display:flex;
+    flex:1;
+    overflow: hidden;
+}
+.sidebar {
+    width: 250px;
+    background-color: #f3f4f6;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    overflow-y: auto;
+}
+.return-table-div {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-radius: 0.25rem;
+    background-color: #ffffff;
+    /* box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);  */
+
+
+
+    @media (min-width: 768px) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+.overflow-x-auto {
+    overflow-x: auto;
+}
+
+.w-full-mb-5 {
+    margin-bottom: 1.25rem;
+    width: 100%;
+    overflow: scroll;
+    height:5rem;
+}

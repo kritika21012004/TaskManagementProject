@@ -1,7 +1,7 @@
 import pymongo
 from pymongo import MongoClient
 from datetime import datetime
-from bson.objectid import ObjectId
+from bson import json_util, ObjectId
 from gridfs import GridFS
 
 client = MongoClient("mongodb://localhost:27017/") 
@@ -54,7 +54,8 @@ def update_task(task_id, new_values):
 #     tasks_in_db.update_one({"_id": ObjectId(task_id)}, {"$set": {'deletedAt': datetime.now()}})
 
 def delete_task(task_id):
-  tasks_in_db.delete_one({"_id": ObjectId(task_id)})
+    result = tasks_in_db.delete_one({"_id": ObjectId(task_id)})
+    return result.deleted_count == 1
 
 def find_tasks_by_ids(task_ids): 
     return tasks_in_db.find({'_id': {'$in': task_ids}})
