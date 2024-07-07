@@ -99,16 +99,11 @@ class TaskCollection:
 
         task = make_task(task_data)
         task_id = insert_task(task)
-        team_ids = [id.strip() for id in req.get_param('team').split(',')]
-        for user_id in team_ids:
+        #team_ids = [id.strip() for id in req.get_param('team').split(',')]
+        for user_id in req.get_param_as_list('team'):  # Assumes that `team` is a list of user IDs
             user = get_user(ObjectId(user_id))
             user_tasks = user.get('tasks', [])
-            if not user_tasks:
-                user_tasks = []
-            elif not isinstance(user_tasks, list):
-                user_tasks = [user_tasks] # convert str to list
-            # user_tasks.append(str(task_id))
-            user_tasks.append(task_data['title'])
+            user_tasks.append(task_data['title'])  # Store task title instead of task_id
             update_user(ObjectId(user_id), {'tasks': user_tasks})
 
         resp.media = {'message': 'Task created successfully'}
