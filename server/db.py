@@ -54,6 +54,7 @@ def update_task(task_id, new_values):
 #     tasks_in_db.update_one({"_id": ObjectId(task_id)}, {"$set": {'deletedAt': datetime.now()}})
 
 def delete_task(task_id):
+  
   tasks_in_db.delete_one({"_id": ObjectId(task_id)})
 
 def find_tasks_by_ids(task_ids): 
@@ -85,3 +86,7 @@ def get_todo_tasks_count():
 
 def get_completed_tasks_count():
     return tasks_in_db.count_documents({'stage': 'COMPLETED'})
+
+
+def get_asset(asset_id):
+    return fs.get(ObjectId(asset_id))

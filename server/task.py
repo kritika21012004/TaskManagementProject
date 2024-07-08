@@ -6,8 +6,9 @@ from datetime import datetime
 from bson import json_util, ObjectId
 from pymongo import MongoClient
 from gridfs import GridFS
-from db import insert_task,get_task,get_tasks,update_task,delete_task,get_user,update_user,insert_asset,get_tasks_count,get_completed_tasks_count,get_todo_tasks_count,get_inprogress_tasks_count
+from db import insert_task,get_task,get_tasks,update_task,delete_task,get_user,update_user,insert_asset,get_tasks_count,get_completed_tasks_count,get_todo_tasks_count,get_inprogress_tasks_count,get_asset
 from gridfile import fs,db
+# from app import get_asset
 import mimetypes
 
 def make_task(values):
@@ -85,7 +86,6 @@ class TaskCollection:
         }
 
         assets = req.get_param('assets')
-        print(assets, "--------------------------------------")
         if assets is not None:
             asset_ids = []
             if not isinstance(assets, list):
@@ -99,8 +99,9 @@ class TaskCollection:
 
         task = make_task(task_data)
         task_id = insert_task(task)
-        #team_ids = [id.strip() for id in req.get_param('team').split(',')]
-        for user_id in req.get_param_as_list('team'):  # Assumes that `team` is a list of user IDs
+        team_ids = [id.strip() for id in req.get_param('team').split(',')]
+        for user_id in team_ids:  # Assumes that `team` is a list of user IDs
+            print(user_id, "    ------------    ")
             user = get_user(ObjectId(user_id))
             user_tasks = user.get('tasks', [])
             user_tasks.append(task_data['title'])  # Store task title instead of task_id
@@ -188,27 +189,33 @@ class SingleTaskResource:
             updated_task_data['team'] = [item.strip() for item in team]
 
         assets = req.get_param('assets')
-        if assets is not None:
+
+        if assets is not None and assets != '' and assets != 'null':
             asset_ids = []
             if not isinstance(assets, list):
-                assets = [assets]  # make it a list if only one file
+                assets = [assets]
 
-            for asset in assets:
-                if hasattr(asset, 'file'):  # only perform file operations if 'file' attribute is present
-                    asset_data = asset.file.read()
-                    asset_id = fs.put(asset_data, filename=asset.filename, content_type=mimetypes.guess_type(asset.filename)[0])
-                    asset_ids.append(str(asset_id))  # convert ObjectId to string before storing
-            updated_task_data['assets'] = asset_ids
+    # check if asset instances have the 'file' attribute before reading
+            new_assets = [a for a in assets if hasattr(a, 'file') and a.file]
+
+            for asset in new_assets:
+                asset_data = asset.file.read()
+                asset_id = fs.put(asset_data, filename=asset.filename, content_type=mimetypes.guess_type(asset.filename)[0])
+                asset_ids.append(str(asset_id))
+
+            if asset_ids:  # Only update 'assets' in task if new assets were processed
+                updated_task_data['assets'] = asset_ids
 
         else:
-            # If no 'assets' in request, keep the existing asset(s) in the task
-            original_task = get_task(ObjectId(id))
-            updated_task_data['assets'] = original_task['assets']
+             print("No new asset in request...")
+             original_task = get_task(ObjectId(id))
+             updated_task_data['assets'] = original_task.get('assets', [])
 
-        # Update database
+# Update database
         update_task(ObjectId(id), updated_task_data)
 
-        resp.media = {'message': 'Task Updated Successfully'}
+        resp.media = {'message': 'Task Updated Successfully'}      
+        
 
     def on_delete(self, req, resp, id):
         print("delete")
@@ -238,3 +245,13 @@ class CompletedTaskCount:
     def on_get(self, req, resp):
         completed_count = get_completed_tasks_count()
         resp.media = {'Completed Tasks': completed_count}
+
+
+class AssetResource:
+
+   def on_get(self, req, resp, task_id, file_id):
+       
+        file = get_asset(file_id)
+        resp.stream = file
+        resp.content_length = file.length
+        resp.content_type = file.content_type
