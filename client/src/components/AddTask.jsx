@@ -40,68 +40,6 @@ const AddTask = ({ open, setOpen ,setTasks}) => {
     setAssets(e.target.files);
     if(Array.isArray(team)) setTeam(team.join(','));
   };
-  // const submitHandler = async (e) => {
-  //   e.preventDefault();
-
-  //   if (title === "" || date === "") {
-  //     alert("Both title and date are required");
-  //     return;
-  //   }
-
-  //   // Creating FormData to handle file uploads
-  //   const data = new FormData();
-  //   data.append('title', title);
-  //   data.append('date', date);
-  //   data.append('team', Array.isArray(team) ? team.join(',') : team);
-  //   data.append('stage', stage);
-  //   data.append('priority', priority);
-  //   for (let i = 0; i < assets.length; i++) {
-  //     data.append('assets', assets[i]);
-  //   }
-
-  //   try {
-  //     const response = await axios.post('http://localhost:8000/api/tasks', data);  // Using Axios library here
-  //     setTitle("");
-  //     setDate("");
-  //     setTeam(task?.team || []);
-  //     setStage(task?.stage?.toUpperCase() || LISTS[0]);
-  //     setPriority(task?.priority?.toUpperCase() || PRIORITY[2]);
-  //     setAssets([]);
-  //     console.log(response.data);
-  //     setOpen(false);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
-
-
-//   const submitHandler = async (e) => {
-//     e.preventDefault();
-//     if (title === "" || date === "") {
-//       alert("Both title and date are required");
-//       return;
-//     }
-
-//     // Creating FormData to handle file uploads
-//     const data = new FormData();
-//     data.append('title', title);
-//     data.append('date', date);
-//     // Joining team before sending
-//     data.append('team', Array.isArray(team) ? team.join(',') : team);
-//     data.append('stage', stage);
-//     data.append('priority', priority);
-//     for (let i = 0; i < assets.length; i++) {
-//       data.append('assets', assets[i]);
-//     }
-
-//     try {
-//       const response = await axios.post('http://localhost:8000/api/tasks', data);
-//       console.log(response.data);
-//       setOpen(false);
-//     } catch (err) {
-//       console.error(err);
-//     }
-// };
 
 const emptyForm = () => {
   setTitle("");
@@ -190,12 +128,6 @@ const submitHandler = async (e) => {
                 className='addTask_wFull'
               />
             </div>
-            {/* <UserList
-              label='Team'
-              userList={users}
-              setSelected={setTeam}
-              
-            /> */}
             <UserList
               setTeam={setTeam}
               team={team}

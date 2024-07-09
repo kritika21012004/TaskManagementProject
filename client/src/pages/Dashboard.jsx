@@ -1,26 +1,21 @@
 import React from "react";
 import {
-    MdAdminPanelSettings,
     MdKeyboardArrowDown,
     MdKeyboardArrowUp,
     MdKeyboardDoubleArrowUp,
 } from "react-icons/md";
 import { useEffect, useState } from "react";
-import { LuClipboardEdit } from "react-icons/lu";
-import { FaNewspaper, FaUsers } from "react-icons/fa";
-import { FaArrowsToDot } from "react-icons/fa6";
 import moment from "moment";
-import { summary } from "../assets/data";
 import clsx from "clsx";
 import { BGS, PRIOTITYSTYELS, TASK_TYPE, getInitials } from "../utils";
 import UserInfo from "../components/UserInfo";
 import "../styles/Dashboard.css"
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
-import axios from 'axios';
-import { FaBug, FaCheck, FaTasks, FaSpinner } from 'react-icons/fa';
+import axios from "axios";
+import { FaTasks, FaSpinner } from 'react-icons/fa';
 
-const icon = <FaTasks/>;
+const icon = <FaTasks />;
 const bg = 'red';
 
 const TaskTable = ({ tasks, getUserById }) => {
@@ -162,24 +157,24 @@ const Dashboard = () => {
             .catch(error => console.log(error));
 
         axios.get('http://localhost:8000/api/total_tasks_count')
-        .then(response => {
-          setTaskCounts(prevState => ({ ...prevState, totalTasks: response.data['Total Tasks'] }))
-        });
+            .then(response => {
+                setTaskCounts(prevState => ({ ...prevState, totalTasks: response.data['Total Tasks'] }))
+            });
 
         axios.get('http://localhost:8000/api/inprogress_task_count')
-        .then(response => {
-            setTaskCounts(prevState => ({ ...prevState, inProgressTasks: response.data['In progress Tasks'] }));
-        });
-    
+            .then(response => {
+                setTaskCounts(prevState => ({ ...prevState, inProgressTasks: response.data['In progress Tasks'] }));
+            });
+
         axios.get('http://localhost:8000/api/todo_task_count')
-        .then(response => {
-            setTaskCounts(prevState => ({ ...prevState, todoTasks: response.data['Todo Tasks'] }));
-        });
-    
+            .then(response => {
+                setTaskCounts(prevState => ({ ...prevState, todoTasks: response.data['Todo Tasks'] }));
+            });
+
         axios.get('http://localhost:8000/api/completed_task_count')
-        .then(response => {
-            setTaskCounts(prevState => ({ ...prevState, completedTasks: response.data['Completed Tasks'] }));
-        });
+            .then(response => {
+                setTaskCounts(prevState => ({ ...prevState, completedTasks: response.data['Completed Tasks'] }));
+            });
     }, []);
 
     const getUserById = (userId) => {
@@ -218,15 +213,12 @@ const Dashboard = () => {
                     </div>
                     <div classNamee='card-div1'>
                         <div className='card-div2'>
-                        {/* {stats.map(({ icon, bg, label, total }, index) => (
-                            <Card key={index} icon={icon} bg={bg} label={label} count={total} />
-                        ))} */}
 
-                <Card key="1" icon={icon} bg={bg} label="Total Tasks" count={taskCounts.totalTasks} />
-                <Card key="2" icon={icon} bg={bg} label="In Progress Tasks" count={taskCounts.inProgressTasks} />
-                <Card key="3" icon={icon} bg={bg} label="To Do Tasks" count={taskCounts.todoTasks} />
-                <Card key="4" icon={icon} bg={bg} label="Completed Tasks" count={taskCounts.completedTasks} />
-                    </div>
+                            <Card key="1" icon={icon} bg={bg} label="Total Tasks" count={taskCounts.totalTasks} />
+                            <Card key="2" icon={icon} bg={bg} label="In Progress Tasks" count={taskCounts.inProgressTasks} />
+                            <Card key="3" icon={icon} bg={bg} label="To Do Tasks" count={taskCounts.todoTasks} />
+                            <Card key="4" icon={icon} bg={bg} label="Completed Tasks" count={taskCounts.completedTasks} />
+                        </div>
 
 
                         <div className='class-left'>

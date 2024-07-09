@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import {
   MdDashboard,
@@ -24,56 +22,17 @@ const linkData = [
     link: "/tasks",
     icon: <FaTasks />,
   },
-  // {
-  //   label: "Completed",
-  //   link: "completed/completed",
-  //   icon: <MdTaskAlt />,
-  // },
-  // {
-  //   label: "In Progress",
-  //   link: "in-progress/in progress",
-  //   icon: <MdOutlinePendingActions />,
-  // },
-  // {
-  //   label: "To Do",
-  //   link: "todo/todo",
-  //   icon: <MdOutlinePendingActions />,
-  // },
   {
     label: "Users",
     link: "/users",
     icon: <FaUsers />,
   },
-  // {
-  //   label: "Trash",
-  //   link: "trashed",
-  //   icon: <FaTrashAlt />,
-  // },
 ];
 
 const Sidebar = () => {
   const location = useLocation();
-
   const path = location.pathname.split("/")[1];
-
   const sidebarLinks = linkData.slice(0, 5);
-
-  // const NavLink = ({ el }) => {
-  //   return (
-  //     <Link
-  //       to={el.link}
-  //       className={clsx(
-  //         "nav-link",
-  //         path === el.link.split("/")[0] ? "sidebar-path" : ""
-  //       )}
-  //     >
-  //       {el.icon}
-  //       <span className='nav-icon'>{el.label}</span>
-  //     </Link>
-  //   );
-  // };
-
-
   const NavLink = ({ el }) => {
     return (
       <Link

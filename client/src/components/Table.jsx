@@ -22,12 +22,6 @@ const ICONS = {
   low: <MdKeyboardArrowDown />,
 };
 
-// const TASK_TYPE = {
-//   todo: 'bg-blue-600',
-//   'in-progress': 'bg-yellow-600',
-//   completed: 'bg-green-600',
-// };
-
 const Table = ({ tasks, getUserById ,setTasks}) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [selected, setSelected] = useState(null);
@@ -101,10 +95,6 @@ const Table = ({ tasks, getUserById ,setTasks}) => {
 
       <td className='py-2'>
         <div className='table-task-msgdiv'>
-          {/* <div className='table-task-activity'>
-            <BiMessageAltDetail />
-            <span>{task?.activities?.length}</span>
-          </div> */}
           <div className='table-asset'>
             <MdAttachFile />
             <span>{task?.assets?.length}</span>

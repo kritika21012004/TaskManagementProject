@@ -66,16 +66,14 @@ const Tasks = () => {
   }, []);
 
   const getUserById = (id) => {
-    // Lookup the user by id in the array
     const user = users.find(user => user._id === id);
     return user;
     
   }
 
-  // Fetch tasks data from the server
   useEffect(() => {
     setLoading(true);
-    axios.get('http://localhost:8000/api/tasks') // Update with your API endpoint
+    axios.get('http://localhost:8000/api/tasks')
       .then(response => {
         setTasks(response.data);
         setLoading(false);
@@ -86,8 +84,6 @@ const Tasks = () => {
       });
   }, []);
 
-
-  
 
   return loading ? (
     <div className='py-10'>
@@ -101,9 +97,7 @@ const Tasks = () => {
       </div>
 
       <div className='task-main-div'>
-        {/* <div className="navbar"> */}
           <Navbar />
-        {/* </div> */}
         <div className='task-status'>
           <Title title={status ? `${status} Tasks` : "Tasks"} />
 

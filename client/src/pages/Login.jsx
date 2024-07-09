@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 import "../styles/Login.css";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { AuthContext } from "../AuthContext";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();

@@ -17,10 +17,7 @@ const TaskDialog = ({ task }) => {
   const [openDialog, setOpenDialog] = useState(false);
 
   const navigate = useNavigate();
-
-  const duplicateHandler = () => {};
-  const deleteClicks = () => {};
-  const deleteHandler = () => {};
+  const deleteClicks = () => { };
 
   const items = [
     {
@@ -33,7 +30,7 @@ const TaskDialog = ({ task }) => {
       icon: <MdOutlineEdit className='opentask-class' aria-hidden='true' />,
       onClick: () => setOpenEdit(true),
     },
-   
+
   ];
 
   return (
@@ -60,9 +57,8 @@ const TaskDialog = ({ task }) => {
                     {({ active }) => (
                       <button
                         onClick={el?.onClick}
-                        className={`${
-                          active ? "button-active" : "button-notactive"
-                        } buttonclick`}
+                        className={`${active ? "button-active" : "button-notactive"
+                          } buttonclick`}
                       >
                         {el.icon}
                         {el.label}
@@ -77,9 +73,8 @@ const TaskDialog = ({ task }) => {
                   {({ active }) => (
                     <button
                       onClick={() => deleteClicks()}
-                      className={`${
-                        active ? "delete-active" : "delete-inactive"
-                      } delete-button`}
+                      className={`${active ? "delete-active" : "delete-inactive"
+                        } delete-button`}
                     >
                       <RiDeleteBin6Line
                         className='deletebutton'

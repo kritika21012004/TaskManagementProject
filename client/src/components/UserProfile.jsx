@@ -1,6 +1,3 @@
-
-
-
 import React, { useState , useEffect } from "react";
 import ModalWrapper from "./ModelWrapper";
 import Textbox from "./Textbox";

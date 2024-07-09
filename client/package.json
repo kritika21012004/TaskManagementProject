@@ -2,6 +2,9 @@
   "name": "task-management",
   "version": "0.1.0",
   "private": true,
+  "transformIgnorePatterns": [
+    "node_modules/(?!axios)/"
+  ],
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
@@ -9,7 +12,6 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
     "clsx": "^2.1.1",
     "jwt-decode": "^4.0.0",
@@ -28,7 +30,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --transformIgnorePatterns \"node_modules/(?!axios)/\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,6 +49,22 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.24.7",
+    "axios": "^0.27.2",
+    "babel-jest": "^29.7.0",
+    "chai": "^5.1.1",
+    "jest": "^27.5.1",
+    "mocha": "^10.6.0",
+    "regenerator-runtime": "^0.14.1"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(axios)/)"
     ]
   }
 }
