@@ -1,10 +1,10 @@
-from resources.users.change_password import ChangePasswordResource
-from resources.users.user_login import UserLoginResource
-from resources.users.user_profile import UserProfileResource
-from resources.users.user_registeration import UserRegistrationResource
-from resources.users.users_collection import UsersCollection
-from resources.users.single_userresource import SingleUserResource
-from resources.users.logout import LogoutResource
+from resources.users_resource.change_password import ChangePasswordResource
+from resources.users_resource.user_login import UserLoginResource
+from resources.users_resource.user_profile import UserProfileResource
+from resources.users_resource.user_registeration import UserRegistrationResource
+from resources.users_resource.users_collection import UsersCollection
+from resources.users_resource.single_userresource import SingleUserResource
+from resources.users_resource.logout import LogoutResource
 
 
 class UserRoutes:

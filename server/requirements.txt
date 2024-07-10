@@ -1,0 +1,13 @@
+bcrypt 
+falcon 
+falcon-cors 
+falcon-multipart 
+# fs
+jwt 
+MongoClient 
+pymongo 
+python_dateutil 
+falcon-testing 
+pytest 
+mock 
+mongomock 

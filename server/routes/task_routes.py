@@ -1,7 +1,7 @@
-from resources.tasks.asset_resource import AssetResource
-from resources.tasks.single_task_resource import SingleTaskResource
-from resources.tasks.task_collection import TaskCollection
-from resources.tasks.task_count_resource import TaskCountResource
+from resources.tasks_resource.asset_resource import AssetResource
+from resources.tasks_resource.single_task_resource import SingleTaskResource
+from resources.tasks_resource.task_collection import TaskCollection
+from resources.tasks_resource.task_count_resource import TaskCountResource
 
 class TaskRoutes:
 
