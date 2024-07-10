@@ -1,10 +1,15 @@
-from resources.task import TaskCollection, SingleTaskResource, TodoTaskCount, TotalTasksCount, CompletedTaskCount, InprogressTaskCount, AssetResource
+from resources.tasks.asset_resource import AssetResource
+from resources.tasks.single_task_resource import SingleTaskResource
+from resources.tasks.task_collection import TaskCollection
+from resources.tasks.task_count_resource import TaskCountResource
 
-def include_routes(app):
-    app.add_route('/api/tasks', TaskCollection())
-    app.add_route('/api/tasks/{id}', SingleTaskResource())
-    app.add_route('/api/total_tasks_count', TotalTasksCount())
-    app.add_route('/api/inprogress_task_count', InprogressTaskCount())
-    app.add_route('/api/todo_task_count', TodoTaskCount())
-    app.add_route('/api/completed_task_count', CompletedTaskCount())
-    app.add_route('/api/tasks/assets/{task_id}/{file_id}', AssetResource())
+class TaskRoutes:
+
+    def __init__(self, app):
+        self.app = app
+
+    def include_routes(self):
+        self.app.add_route('/api/tasks', TaskCollection())
+        self.app.add_route('/api/tasks/{id}', SingleTaskResource())
+        self.app.add_route('/api/tasks_count', TaskCountResource())
+        self.app.add_route('/api/tasks/assets/{task_id}/{file_id}', AssetResource())

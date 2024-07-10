@@ -156,25 +156,11 @@ const Dashboard = () => {
             .then(response => setUsers(response.data))
             .catch(error => console.log(error));
 
-        axios.get('http://localhost:8000/api/total_tasks_count')
-            .then(response => {
-                setTaskCounts(prevState => ({ ...prevState, totalTasks: response.data['Total Tasks'] }))
-            });
-
-        axios.get('http://localhost:8000/api/inprogress_task_count')
-            .then(response => {
-                setTaskCounts(prevState => ({ ...prevState, inProgressTasks: response.data['In progress Tasks'] }));
-            });
-
-        axios.get('http://localhost:8000/api/todo_task_count')
-            .then(response => {
-                setTaskCounts(prevState => ({ ...prevState, todoTasks: response.data['Todo Tasks'] }));
-            });
-
-        axios.get('http://localhost:8000/api/completed_task_count')
-            .then(response => {
-                setTaskCounts(prevState => ({ ...prevState, completedTasks: response.data['Completed Tasks'] }));
-            });
+        axios.get('http://localhost:8000/api/tasks_count')   // Updated API endpoint
+        .then(response => {
+            const { 'Total Tasks': totalTasks, 'In progress Tasks': inProgressTasks, 'Todo Tasks': todoTasks, 'Completed Tasks': completedTasks } = response.data;
+            setTaskCounts({ totalTasks, inProgressTasks, todoTasks, completedTasks });
+        });
     }, []);
 
     const getUserById = (userId) => {
@@ -182,7 +168,7 @@ const Dashboard = () => {
     };
 
     const Card = ({ label, count, bg, icon }) => {
-        return (
+        return (    
             <div className='card1'>
                 <div className='card2'>
                     <p className='card3'>{label}</p>

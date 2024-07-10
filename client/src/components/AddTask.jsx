@@ -70,7 +70,6 @@ const submitHandler = async (e) => {
   } else {
       data.append('team', team);
   }
-
   data.append('stage', stage);
   data.append('priority', priority);
   // for (let i = 0; i < assets.length; i++) {
