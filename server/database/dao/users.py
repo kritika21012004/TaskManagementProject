@@ -1,7 +1,7 @@
 from datetime import datetime
 from bson.objectid import ObjectId
-from database import db
-
+from database.__init__ import db
+# server/database/__init__.py
 
 class UserDatabase:
     
