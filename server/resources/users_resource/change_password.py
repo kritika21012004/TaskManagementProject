@@ -5,8 +5,6 @@ import json
 from bson import ObjectId
 from json import JSONEncoder as _JSONEncoder, dumps
 from datetime import datetime
-
-# from  ..common_resource.common  import MyJSONEncoder
 from database.dao.users import UserDatabase
 
 

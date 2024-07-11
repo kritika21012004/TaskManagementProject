@@ -19,6 +19,8 @@ class UserLoginResource:
         email = body['email']
         user = self.user_db.find_user(email)
 
+
+
         if user and bcrypt.checkpw(body['password'].encode('utf-8'), user['password'].encode('utf-8')):
             token_data = {
                 'id': str(user['_id']),

@@ -5,7 +5,7 @@ from unittest.mock import MagicMock
 from bson.objectid import ObjectId
 from database.dao.tasks import TaskDatabase
 from database.dao.users import UserDatabase
-from resources.tasks.single_task_resource import SingleTaskResource
+from resources.tasks_resource.single_task_resource import SingleTaskResource
 
 class TestSingleTaskResource:
 

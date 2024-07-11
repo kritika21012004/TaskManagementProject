@@ -5,7 +5,7 @@ from falcon import testing
 import pytest
 from unittest.mock import MagicMock, ANY
 from database.dao.tasks import TaskDatabase
-from resources.tasks.task_count_resource import TaskCountResource
+from resources.tasks_resource.task_count_resource import TaskCountResource
 
 class TestTaskCountResource:
 

@@ -1,5 +1,6 @@
 # .gitignore
 __pycache__/
+__pycache__
 *.pyc
 *.pyo
 *.pyd
@@ -7,3 +8,16 @@ __pycache__/
 # misc
 .DS_Store
 
+VERSION
+
+get-pip.py
+setup.py
+start.sh
+
+.pytest_cache
+.pytest_cache/
+
+test_project/
+
+test_project
+database/__pycache__/

@@ -8,7 +8,7 @@ from unittest.mock import MagicMock, ANY
 from bson.objectid import ObjectId
 from database.dao.tasks import TaskDatabase
 from database.dao.users import UserDatabase
-from resources.tasks.task_collection import TaskCollection
+from resources.tasks_resource.task_collection import TaskCollection
 
 class TestTaskCollectionResource:
     def setup_method(self):
