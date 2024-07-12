@@ -1,4 +1,4 @@
-const { formatDate, dateFormatter, getInitials, PRIOTITYSTYELS, TASK_TYPE, BGS } = require('../index.js'); 
+const { formatDate, dateFormatter, getInitials, PRIOTITYSTYELS, TASK_TYPE, BGS } = require('../../../src/utils/index.js'); 
 
 describe('Utils', ()=> {
 

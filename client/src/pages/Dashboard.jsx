@@ -112,17 +112,14 @@ const UserTable = ({ users }) => {
                     <div className='get-initial'>
                         <span className='text-center'>{getInitials(user?.name)}</span>
                     </div>
-
                     <div>
                         <p> {user.name}</p>
                     </div>
                 </div>
             </td>
-
             <td>
                 <p> <span className='user-role'>{user?.role}</span></p>
             </td>
-
         </tr>
     );
 
@@ -140,8 +137,6 @@ const UserTable = ({ users }) => {
     );
 };
 const Dashboard = () => {
-
-
 
     const [tasks, setTasks] = useState([]);
     const [usersList, setUsers] = useState([]);
@@ -174,7 +169,6 @@ const Dashboard = () => {
                     <p className='card3'>{label}</p>
                     <span className='card4'>{count}</span>
                 </div>
-
                 <div
                     className={clsx(
                         "bg",
@@ -189,7 +183,6 @@ const Dashboard = () => {
     return (
         <div className="dashboard-container">
             <div className="main-content">
-
                 <div className="sidebar">
                     <Sidebar />
                 </div>
@@ -199,24 +192,17 @@ const Dashboard = () => {
                     </div>
                     <div classNamee='card-div1'>
                         <div className='card-div2'>
-
                             <Card key="1" icon={icon} bg={bg} label="Total Tasks" count={taskCounts.totalTasks} />
                             <Card key="2" icon={icon} bg={bg} label="In Progress Tasks" count={taskCounts.inProgressTasks} />
                             <Card key="3" icon={icon} bg={bg} label="To Do Tasks" count={taskCounts.todoTasks} />
                             <Card key="4" icon={icon} bg={bg} label="Completed Tasks" count={taskCounts.completedTasks} />
                         </div>
-
-
                         <div className='class-left'>
                             {/* /left */}
-
                             <TaskTable getUserById={getUserById} tasks={tasks} />
-
                             {/* /right */}
                             <UserTable users={usersList} />
-
                         </div>
-
                     </div>
                 </div>
             </div>

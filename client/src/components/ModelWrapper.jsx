@@ -1,6 +1,8 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useRef } from "react";
 import "../styles/ModelWrapper.css"
+import React from "react";
+
 
 const ModalWrapper = ({ open, setOpen, children,className }) => {
   const cancelButtonRef = useRef(null);

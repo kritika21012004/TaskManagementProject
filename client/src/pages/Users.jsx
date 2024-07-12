@@ -10,6 +10,8 @@ import "../styles/Users.css"
 
 const Users = () => {
     const [users, setUsers] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
+
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/users')
@@ -18,8 +20,13 @@ const Users = () => {
                 setUsers(usersData.map(user => {
                     return { ...user, tasks: user.tasks.join(", ") }
                 }));
+                setIsLoading(false);
+
             }).catch(error => {
+                
                 console.error(`Error fetching data: ${error}`);
+                setIsLoading(false);
+
             });
     }, []);
 
@@ -67,6 +74,7 @@ const Users = () => {
                     </div>
                     <div className='return-table-div'>
                         <div className='overflow-x-auto'>
+                        {isLoading ? <p>Loading...</p> : (
                             <table className='w-full-mb-5'>
                                 <TableHeader />
                                 <tbody>
@@ -75,6 +83,7 @@ const Users = () => {
                                     ))}
                                 </tbody>
                             </table>
+                        )}
                         </div>
                     </div>
                 </div>

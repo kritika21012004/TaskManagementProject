@@ -86,7 +86,7 @@ const Tasks = () => {
 
 
   return loading ? (
-    <div className='py-10'>
+    <div className='py-10' data-testid="loader">
       <Loading />
     </div>
   ) : (

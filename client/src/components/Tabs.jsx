@@ -1,5 +1,7 @@
 import { Tab } from "@headlessui/react";
 import "../styles/Tabs.css"
+import React from "react";
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
