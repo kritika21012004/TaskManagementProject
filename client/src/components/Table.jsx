@@ -130,6 +130,7 @@ const Table = ({ tasks, getUserById ,setTasks}) => {
           className='delete-button'
           label='Delete'
           type='button'
+          data-testid='modal-delete-button'
           onClick={() => deleteClicks(task._id)}
         />
       </td>

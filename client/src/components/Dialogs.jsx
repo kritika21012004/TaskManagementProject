@@ -5,6 +5,7 @@ import ModalWrapper from "./ModelWrapper";
 import Button from "./Button";
 import "../styles/Dialogs.css"
 import "../styles/ModelWrapper.css"
+import React from 'react';
 
 export default function ConfirmatioDialog({
   open,
