@@ -78,7 +78,7 @@ const EditTask = ({ open, setOpen, task, setTasks }) => {
 
   return (
     <ModalWrapper open={open} setOpen={setOpen}>
-      <form className="addTaskModal" onSubmit={(e) => submitHandler(e)}>
+      <form data-testid="edit-task-form" className="addTaskModal" onSubmit={(e) => submitHandler(e)}>
         <div className="add_task_div">
           <h2>EDIT TASK</h2>
           <Textbox
@@ -89,6 +89,7 @@ const EditTask = ({ open, setOpen, task, setTasks }) => {
             name='title'
             label='Task Title'
             className='task_title input1'
+            data-testid='task-title'
           />
           <div className="task_row2">
             <SelectList
@@ -106,6 +107,7 @@ const EditTask = ({ open, setOpen, task, setTasks }) => {
               name='date'
               label='Task Date'
               className='addTask_wFull'
+              data-testid='task-date'
             />
           </div>
           <UserList

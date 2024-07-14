@@ -15,7 +15,6 @@ const UserList = ({ setTeam, team }) => {
   useEffect(() => {
     axios.get('http://localhost:8000/api/users')
       .then(res => {setUsers(res.data);
-        console.log(res.data); 
   })
       .catch(err => console.error(err));
   }, []);
