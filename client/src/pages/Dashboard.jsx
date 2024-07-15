@@ -18,7 +18,7 @@ import { FaTasks, FaSpinner } from 'react-icons/fa';
 const icon = <FaTasks />;
 const bg = 'red';
 
-const TaskTable = ({ tasks, getUserById }) => {
+export const TaskTable = ({ tasks, getUserById }) => {
     const ICONS = {
         high: <MdKeyboardDoubleArrowUp />,
         medium: <MdKeyboardArrowUp />,
@@ -84,7 +84,7 @@ const TaskTable = ({ tasks, getUserById }) => {
             <div className='task'>
                 <table className='w-full'>
                     <TableHeader />
-                    <tbody>
+                    <tbody data-testid="tasks-table-body">
                         {tasks?.map((task, id) => (
                             <TableRow key={id} task={task} />
                         ))}
@@ -95,7 +95,7 @@ const TaskTable = ({ tasks, getUserById }) => {
     );
 };
 
-const UserTable = ({ users }) => {
+export const UserTable = ({ users }) => {
     const TableHeader = () => (
         <thead className='user-table1'>
             <tr className='user-table2'>
@@ -106,7 +106,7 @@ const UserTable = ({ users }) => {
     );
 
     const TableRow = ({ user }) => (
-        <tr className='table-row-user'>
+        <tr className='table-row-user' data-testid="user-row">
             <td className='table-heading'>
                 <div className='table-row-user2'>
                     <div className='get-initial'>
@@ -153,6 +153,7 @@ const Dashboard = () => {
 
         axios.get('http://localhost:8000/api/tasks_count')   // Updated API endpoint
         .then(response => {
+            console.log(response.data)
             const { 'Total Tasks': totalTasks, 'In progress Tasks': inProgressTasks, 'Todo Tasks': todoTasks, 'Completed Tasks': completedTasks } = response.data;
             setTaskCounts({ totalTasks, inProgressTasks, todoTasks, completedTasks });
         });

@@ -132,7 +132,7 @@ const Tasks = () => {
           )}
         </Tabs>
 
-        <AddTask open={open} setOpen={setOpen} tasks={tasks} setTasks={setTasks}  />
+        <AddTask open={open} setOpen={setOpen} tasks={tasks} setTasks={setTasks} data-testid={open ? "addtask-component" : undefined}/>
       </div>
 
     </div>

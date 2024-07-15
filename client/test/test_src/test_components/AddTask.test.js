@@ -1,9 +1,37 @@
-import { render, fireEvent } from "@testing-library/react";
 import React from "react";
+import { render, fireEvent, waitFor, screen } from "@testing-library/react";
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 import AddTask from "../../../src/components/AddTask";
+
 
 global.alert = jest.fn();
 const mockSubmit = jest.fn();
+
+var mock = new MockAdapter(axios);
+
+// Mock any GET request to /users
+// arguments for reply are (status, data, headers)
+mock.onGet('http://localhost:8000/api/users').reply(200, {
+  users: [
+    { id: 1, name: 'John Smith' }
+  ]
+});
+
+// Mock any POST request to /addTask
+// arguments for reply are (status, data, headers)
+mock.onPost('http://localhost:8000/api/tasks').reply(200, {
+  message: "Task added successfully"
+});
+
+
+const setTasks = jest.fn();
+const setOpen = jest.fn();
+
+it("renders without crashing", async() => {
+    render(<AddTask open={true} setOpen={setOpen} setTasks={setTasks} />);
+    await waitFor(() => screen.getByText(/ADD TASK/i));
+});
 
 it("renders without crashing", () => {
     const setTasks = jest.fn();
