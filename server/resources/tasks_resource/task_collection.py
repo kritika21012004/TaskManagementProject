@@ -49,7 +49,6 @@ class TaskCollection:
             'stage': req.get_param('stage'),
             'priority': req.get_param('priority')
         }
-
         try:
             datetime.strptime(req.get_param('date'), '%Y-%m-%d') # Change to whatever is your date format
         except ValueError as e:

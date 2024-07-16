@@ -21,7 +21,6 @@ const UserAvatar = () => {
   const logoutHandler = () => {
     const logOut = async () => {
       try {
-        console.log("logout");
         await axios.get('http://localhost:8000/api/logout');
         localStorage.removeItem('jwtToken');
         toast.success('Logout successfully');
@@ -36,7 +35,6 @@ const UserAvatar = () => {
   };
 
   const userName = localStorage.getItem("name") || "No User";
-  console.log(localStorage.getItem("token"));
 
   return (
     <>

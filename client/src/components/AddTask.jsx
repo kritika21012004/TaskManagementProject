@@ -35,10 +35,8 @@ const AddTask = ({ open, setOpen ,setTasks}) => {
   }, []);
 
   const handleSelect = (e) => {
-    console.log(e.target);
-    console.log(e.target.files)
     setAssets(e.target.files);
-    if(Array.isArray(team)) setTeam(team.join(','));
+    // if(Array.isArray(team)) setTeam(team.join(','));
   };
 
 const emptyForm = () => {
@@ -62,7 +60,6 @@ const submitHandler = async (e) => {
   data.append('title', title);
   data.append('date', date);
 
-  // Append each user_id separately
   if(Array.isArray(team)) {
       team.forEach(user_id => {
           data.append('team', user_id);
@@ -82,8 +79,6 @@ const submitHandler = async (e) => {
       }
        const response=await axios.post('http://localhost:8000/api/tasks', data);
        setOpen(false);
-       console.log("1");
-       console.log(response.data);
        const updatedTasks = await axios.get('http://localhost:8000/api/tasks'); //fetch all tasks
        setTasks(updatedTasks.data);
        emptyForm();

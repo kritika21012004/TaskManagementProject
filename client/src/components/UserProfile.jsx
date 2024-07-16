@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import "../styles/UserProfile.css";
 
-const ROLES = ["Analyst", "Tester", "Backend Developer"];
+const ROLES = ["Analyst", "Tester", "Backend Developer", "Frontend Developer"];
 
 const UserProfile = ({ open, setOpen }) => {
   const profile = "";
@@ -29,8 +29,6 @@ const UserProfile = ({ open, setOpen }) => {
     }
   
     try {
-      console.log(user);
-      console.log(JSON.parse(user)._id);
       const token = localStorage.getItem("jwtToken");
       const response = await axios.put(
         `http://localhost:8000/api/users/${JSON.parse(user)._id}`, 
@@ -66,9 +64,6 @@ const UserProfile = ({ open, setOpen }) => {
       
         const decodedToken = jwtDecode(token);
         const userEmail = decodedToken.email;
-
-        console.log('token:', token);
-        console.log('email:', userEmail);
         
         const response = await axios.get("http://localhost:8000/api/profile", {
           params: {
