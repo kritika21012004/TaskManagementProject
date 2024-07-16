@@ -30,7 +30,7 @@ const EditTask = ({ open, setOpen, task, setTasks }) => {
     setPriority(task?.priority?.toUpperCase() || PRIORITY[2]);
     setAssets(task?.assets || []);
 
-    axios.get('http://localhost:8000/api/users')
+    axios.get('http://10.66.65.17:8000/api/users')
       .then(res => {
         setUsers(res.data);
       })
@@ -67,8 +67,8 @@ const EditTask = ({ open, setOpen, task, setTasks }) => {
     }
 
     try {
-      await axios.put(`http://localhost:8000/api/tasks/${task._id}`, data);
-      const updatedTasks = await axios.get('http://localhost:8000/api/tasks');
+      await axios.put(`http://10.66.65.17:8000/api/tasks/${task._id}`, data);
+      const updatedTasks = await axios.get('http://10.66.65.17:8000/api/tasks');
       setTasks(updatedTasks.data);
       setOpen(false);
     } catch (err) {

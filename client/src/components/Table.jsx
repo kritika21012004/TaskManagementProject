@@ -40,7 +40,7 @@ const Table = ({ tasks, getUserById ,setTasks}) => {
   const deleteHandler = async(id) => {
     try {
       console.log(id);
-      const response = await axios.delete(`http://localhost:8000/api/tasks/${id}`)
+      const response = await axios.delete(`http://10.66.65.17:8000/api/tasks/${id}`)
       console.log("button")
       if (response.status === 200) { 
         setOpenDialog(false);

@@ -21,7 +21,7 @@ const UserAvatar = () => {
   const logoutHandler = () => {
     const logOut = async () => {
       try {
-        await axios.get('http://localhost:8000/api/logout');
+        await axios.get('http://10.66.65.17:8000/api/logout');
         localStorage.removeItem('jwtToken');
         toast.success('Logout successfully');
         navigate('/');

@@ -14,7 +14,7 @@ const Users = () => {
 
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/users')
+        axios.get('http://10.66.65.17:8000/api/users')
             .then(response => {
                 const usersData = response.data;
                 setUsers(usersData.map(user => {

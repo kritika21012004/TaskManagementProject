@@ -46,7 +46,7 @@ const TaskCard = ({ task, getUserById, setTasks }) => {
   const deleteHandler = async (id) => {
     try {
       console.log(id);
-      const response = await axios.delete(`http://localhost:8000/api/tasks/${id}`)
+      const response = await axios.delete(`http://10.66.65.17:8000/api/tasks/${id}`)
       console.log("button")
       if (response.status === 200) {
         console.log(response.status)
@@ -114,7 +114,7 @@ const TaskCard = ({ task, getUserById, setTasks }) => {
         <div className='taskcard-bimsgdetail-outer-1'>
           <div className='taskcard-bimsgdetail-outer-2'>
 
-            <div className='mdattachfile' onClick={() => task?.assets?.length > 0 && window.open(`http://localhost:8000/api/tasks/assets/${task._id}/${task?.assets[0]}`)}>
+            <div className='mdattachfile' onClick={() => task?.assets?.length > 0 && window.open(`http://10.66.65.17:8000/api/tasks/assets/${task._id}/${task?.assets[0]}`)}>
               <MdAttachFile />
               <span>{task?.assets?.length || 0}</span>
             </div>

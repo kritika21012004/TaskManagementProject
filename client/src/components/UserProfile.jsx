@@ -31,7 +31,7 @@ const UserProfile = ({ open, setOpen }) => {
     try {
       const token = localStorage.getItem("jwtToken");
       const response = await axios.put(
-        `http://localhost:8000/api/users/${JSON.parse(user)._id}`, 
+        `http://10.66.65.17:8000/api/users/${JSON.parse(user)._id}`, 
         { 
           name: username, 
           email, 
@@ -65,7 +65,7 @@ const UserProfile = ({ open, setOpen }) => {
         const decodedToken = jwtDecode(token);
         const userEmail = decodedToken.email;
         
-        const response = await axios.get("http://localhost:8000/api/profile", {
+        const response = await axios.get("http://10.66.65.17:8000/api/profile", {
           params: {
             email: userEmail,
           },

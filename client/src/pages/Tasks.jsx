@@ -39,7 +39,7 @@ const Tasks = () => {
   const [tasks, setTasks] = useState([]); // Change this line
   useEffect(() => {
     setLoading(true);
-    axios.get('http://localhost:8000/api/users') // Update with your API endpoint
+    axios.get('http://10.66.65.17:8000/api/users') // Update with your API endpoint
         .then((response) => {
           setUsers(response.data);
           setLoading(false);
@@ -53,7 +53,7 @@ const Tasks = () => {
 
   const getTasks = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/tasks');
+      const response = await axios.get('http://10.66.65.17:8000/api/tasks');
       setTasks(response.data);
     } catch (err) {
       console.error('Error fetching tasks', err);
@@ -73,7 +73,7 @@ const Tasks = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get('http://localhost:8000/api/tasks')
+    axios.get('http://10.66.65.17:8000/api/tasks')
       .then(response => {
         setTasks(response.data);
         setLoading(false);
