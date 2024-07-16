@@ -151,7 +151,7 @@ const Dashboard = () => {
             .then(response => setUsers(response.data))
             .catch(error => console.log(error));
 
-        axios.get('http://10.66.65.17:8000/tasks_count')   // Updated API endpoint
+        axios.get('http://10.66.65.17:8000/api/tasks_count')   // Updated API endpoint
         .then(response => {
             console.log(response.data)
             const { 'Total Tasks': totalTasks, 'In progress Tasks': inProgressTasks, 'Todo Tasks': todoTasks, 'Completed Tasks': completedTasks } = response.data;
