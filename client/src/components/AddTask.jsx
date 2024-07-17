@@ -27,7 +27,7 @@ const AddTask = ({ open, setOpen ,setTasks}) => {
 
   useEffect(() => {
     // Request to get the users
-    axios.get('http://10.66.65.17:8000/api/users')
+    axios.get('http://10.66.67.132:8000/api/users')
       .then(res => {
         setUsers(res.data);
       })
@@ -77,9 +77,9 @@ const submitHandler = async (e) => {
       for (let i = 0; i < assets.length; i++) {
           data.append('assets', assets[i]);
       }
-       const response=await axios.post('http://10.66.65.17:8000/api/tasks', data);
+       const response=await axios.post('http://10.66.67.132:8000/api/tasks', data);
        setOpen(false);
-       const updatedTasks = await axios.get('http://10.66.65.17:8000/api/tasks'); //fetch all tasks
+       const updatedTasks = await axios.get('http://10.66.67.132:8000/api/tasks'); //fetch all tasks
        setTasks(updatedTasks.data);
        emptyForm();
       

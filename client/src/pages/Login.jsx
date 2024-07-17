@@ -48,7 +48,7 @@ const Login = () => {
     }
 
     try {
-      const result = await axios.post('http://10.66.65.17:8000/api/register', { ...formData });
+      const result = await axios.post('http://10.66.67.132:8000/api/register', { ...formData });
       if (result.data.success) {
         setUser(result.data.user);
         localStorage.setItem('jwtToken', result.data.token);
@@ -79,7 +79,7 @@ const Login = () => {
   const signIn = async (e) => {
     e.preventDefault();
     try {
-      const result = await axios.post('http://10.66.65.17:8000/api/login', formData);
+      const result = await axios.post('http://10.66.67.132:8000/api/login', formData);
       if (result.data) {
         setUser(result.data.user);
         localStorage.setItem('jwtToken', result.data.token);

@@ -143,15 +143,15 @@ const Dashboard = () => {
     const [taskCounts, setTaskCounts] = useState({ totalTasks: 0, inProgressTasks: 0, todoTasks: 0, completedTasks: 0 });
 
     useEffect(() => {
-        axios.get('http://10.66.65.17:8000/api/tasks')
+        axios.get('http://10.66.67.132:8000/api/tasks')
             .then(response => setTasks(response.data))
             .catch(error => console.log(error));
 
-        axios.get('http://10.66.65.17:8000/api/users')
+        axios.get('http://10.66.67.132:8000/api/users')
             .then(response => setUsers(response.data))
             .catch(error => console.log(error));
 
-        axios.get('http://10.66.65.17:8000/api/tasks_count')   // Updated API endpoint
+        axios.get('http://10.66.67.132:8000/api/tasks_count')   
         .then(response => {
             console.log(response.data)
             const { 'Total Tasks': totalTasks, 'In progress Tasks': inProgressTasks, 'Todo Tasks': todoTasks, 'Completed Tasks': completedTasks } = response.data;

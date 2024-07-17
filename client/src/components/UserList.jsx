@@ -13,7 +13,7 @@ const UserList = ({ setTeam, team }) => {
   const [selectedUsers, setSelectedUsers] = useState([]);
 
   useEffect(() => {
-    axios.get('http://10.66.65.17:8000/api/users')
+    axios.get('http://10.66.67.132:8000/api/users')
       .then(res => {setUsers(res.data);
   })
       .catch(err => console.error(err));
