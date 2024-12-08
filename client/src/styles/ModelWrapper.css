@@ -1,0 +1,180 @@
+.enter{
+    transition-duration: 300ms; 
+transition-timing-function: cubic-bezier(0, 0, 0.2, 1); 
+}
+.enterfrom{
+    opacity: 0; 
+}
+.enterto{
+    opacity:1;
+}
+.leave{
+    transition-duration: 200ms; 
+transition-timing-function: cubic-bezier(0.4, 0, 1, 1); 
+}
+.leavefrom{
+    opacity: 1; 
+}
+.leaveto{
+    opacity:0;
+}
+.modelwrapper-dialog{
+    position: relative; 
+    z-index: 10; 
+    width: 100%;     
+}
+.transition-child{
+position: fixed; 
+top: 0;
+right: 0;
+bottom: 0;
+left: 0; 
+background-color: #000000; 
+--bg-opacity: 0.6; 
+transition-property: opacity;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: 300ms; 
+}
+.leaveto{
+    opacity: 0; 
+}
+.transition-child-1{
+    overflow-y: auto; 
+position: fixed; 
+top: 0;
+right: 0;
+bottom: 0;
+left: 0; 
+z-index: 10; 
+width: 100vw; 
+}
+
+.transition-child-2{
+    display: flex; 
+    padding: 1rem; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+    text-align: center; 
+    
+    @media (min-width: 640px) { 
+      padding: 0; 
+     }    
+}
+
+.tenter{
+    transition-duration: 300ms; 
+transition-timing-function: cubic-bezier(0, 0, 0.2, 1); 
+}
+.tenterfrom{
+    --transform-translate-y: 1rem; 
+opacity: 0; 
+@media (min-width: 640px) { 
+  --transform-scale-x: .95;
+--transform-scale-y: .95; 
+--transform-translate-y: 0; 
+ }
+}
+.tenterto{
+    --transform-translate-y: 0; 
+opacity: 1; 
+
+@media (min-width: 640px) { 
+  --transform-scale-x: 1;
+--transform-scale-y: 1; 
+ }
+}
+
+.tleave{
+    transition-duration: 200ms; 
+transition-timing-function: cubic-bezier(0.4, 0, 1, 1); 
+}
+
+.tleavefrom{
+    --transform-translate-y: 0; 
+opacity: 1; 
+
+@media (min-width: 640px) { 
+  --transform-scale-x: 1;
+--transform-scale-y: 1; 
+ }
+
+}
+.tleaveto{
+    --transform-translate-y: 1rem; 
+opacity: 0; 
+
+@media (min-width: 640px) { 
+  --transform-scale-x: .95;
+--transform-scale-y: .95; 
+--transform-translate-y: 0; 
+ }
+
+}
+.dialog-panel{
+    /* width:500px;
+    height:600px; */
+    overflow: hidden; 
+position: relative; 
+padding-bottom: 0; 
+border-radius: 0.5rem; 
+text-align: left; 
+background-color: #ffffff; 
+transition-property: all;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: 300ms; 
+box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+
+/* @media (min-width: 640px) { 
+  margin-top: 2rem;
+margin-bottom: 2rem; 
+width: 100%; 
+max-width: 32rem; 
+ } */
+}
+
+.dialog-panel-div1{
+    /* padding-left: 1rem;
+    padding-right: 1rem; 
+    padding-bottom: 1rem; 
+    padding-top: 1.25rem; 
+    background-color: #ffffff; 
+    
+    @media (min-width: 640px) { 
+      padding: 1.5rem; 
+    padding-bottom: 1rem; 
+     } */
+}
+
+.dialog-panel-div2{
+
+/* @media (min-width: 640px) { 
+    display: flex; 
+  align-items: flex-start; 
+   } */
+    
+}
+.dialog-panel-div3{
+    margin-top:2rem; 
+width: 100%;  
+
+@media (min-width: 640px) { 
+  margin-top: 0; 
+margin-left: 1rem; 
+text-align: left; 
+ }
+}
+
+.deletedialogclass {
+    width: 400px;   
+    height: 400px; 
+  }
+
+  .addTaskModal {
+    width: 500px;    /* width for AddTask component */
+    height: 600px;
+  }
+  .UserProfileModel{
+    height: 400px;
+    width: 400px;
+  }

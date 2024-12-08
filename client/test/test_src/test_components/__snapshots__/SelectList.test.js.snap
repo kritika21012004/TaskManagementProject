@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectList renders correctly with initial props 1`] = `
+<div
+  className="w-full"
+>
+  <p
+    className="label"
+  >
+    Test Label
+  </p>
+  <div
+    className="listbox-outer-div"
+    data-headlessui-state=""
+  >
+    <button
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      autoFocus={false}
+      className="listbox-button"
+      data-headlessui-state=""
+      id="headlessui-listbox-button-:r2:"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyPress={[Function]}
+      onKeyUp={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onPointerDown={[Function]}
+      onPointerUp={[Function]}
+      onTouchStart={[Function]}
+      type="button"
+    >
+      <span
+        className="block-truncate"
+      >
+        Option 1
+      </span>
+      <span
+        className="selectlist-expand-span"
+      >
+        <svg
+          aria-hidden="true"
+          className="selectlist-expand"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 16 16"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708"
+            fillRule="evenodd"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`SelectList renders correctly with initial props 2`] = `
+<div
+  className="w-full"
+>
+  <p
+    className="label"
+  >
+    Test Label
+  </p>
+  <div
+    className="listbox-outer-div"
+    data-headlessui-state=""
+  >
+    <button
+      aria-expanded={false}
+      aria-haspopup="listbox"
+      autoFocus={false}
+      className="listbox-button"
+      data-headlessui-state=""
+      id="headlessui-listbox-button-:r5:"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyPress={[Function]}
+      onKeyUp={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onPointerDown={[Function]}
+      onPointerUp={[Function]}
+      onTouchStart={[Function]}
+      type="button"
+    >
+      <span
+        className="block-truncate"
+      >
+        Option 1
+      </span>
+      <span
+        className="selectlist-expand-span"
+      >
+        <svg
+          aria-hidden="true"
+          className="selectlist-expand"
+          fill="currentColor"
+          height="1em"
+          stroke="currentColor"
+          strokeWidth="0"
+          style={
+            {
+              "color": undefined,
+            }
+          }
+          viewBox="0 0 16 16"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708"
+            fillRule="evenodd"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>
+`;
